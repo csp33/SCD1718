@@ -1,9 +1,0 @@
-Página 13
-
-    Al quitar el unlock, la exclusión mutua no se libera nunca, por lo que el programa se queda colgado.
-
-
-Página 25
-
-    Al usar notify_all(), la salida no sale en bloques como al usar notify_one().
-
