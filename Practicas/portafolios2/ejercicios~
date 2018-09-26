@@ -1,0 +1,2 @@
+s2; p25
+Al usar notify_all(), la salida no sale en bloques como al usar notify_one().
