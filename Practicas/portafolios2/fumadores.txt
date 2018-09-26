@@ -1,0 +1,57 @@
+/****Carlos Sánchez Páez*****/
+/*********2A (A2)***********/
+
+/*****************Problema de los Fumadores***********************/
+
+Variables utilizadas:
+	
+	-> estanquero (Variable Condición). Aquí indicaré cuando el estanquero debe esperar (wait) y cuando debe producir un ingrediente para ponerlo en el 										mostrador (signal)
+
+	-> fumadores [3] (Vector de Variables Condición). Con wait indicaré que el fumador no tiene su ingrediente y debe esperar y con signal que lo retire.
+
+	-> ingrediente (int). Con este atributo del monitor indico el ingrediente que hay actualmente en el mostrador. Cuando hago que valga 3 significa que el 					 mostrador está vacío y todos los fumadores deben esperar.
+
+Pseudocódigo:
+	
+	Constructor:
+		->"Inicializar" variables condición.
+		-> Poner el ingrediente a 3 (vacío).
+
+	ObtenerIngrediente(int ingrediente):
+		-> Si el parámetro no está en el mostrador, espera.
+		-> Retira el ingrediente y pon el mostrador a vacío.
+		-> Avisa al estanquero.
+
+	PonerIngrediente (int i):
+		->Pon el ingrediente en el mostrador.
+		-> Avisa al fumador correspondiente.
+
+	EsperarRecogidaIngrediente:
+		->Si hay algo en el mostrador, espera. Si no, sal del método.
+
+Salida:
+
+
+/*************************************************************************/
+ 		El estanquero pone el ingrediente 1 en el mostrador.
+		El fumador 1 retira su ingrediente.
+		Fumador 1  : empieza a fumar (80 milisegundos)
+		Fumador 1  : termina de fumar, comienza espera de ingrediente.
+		El estanquero pone el ingrediente 2 en el mostrador.
+		El fumador 2 retira su ingrediente.
+		Fumador 2  : empieza a fumar (131 milisegundos)
+		Fumador 2  : termina de fumar, comienza espera de ingrediente.
+		El estanquero pone el ingrediente 0 en el mostrador.
+		El fumador 0 retira su ingrediente.
+		Fumador 0  : empieza a fumar (120 milisegundos)
+		El estanquero pone el ingrediente 0 en el mostrador.
+		Fumador 0  : termina de fumar, comienza espera de ingrediente.
+		El fumador 0 retira su ingrediente.
+		Fumador 0  : empieza a fumar (135 milisegundos)
+		El estanquero pone el ingrediente 2 en el mostrador.
+		El fumador 2 retira su ingrediente.
+		Fumador 2  : empieza a fumar (69 milisegundos)
+		Fumador 2  : termina de fumar, comienza espera de ingrediente.
+		Fumador 0  : termina de fumar, comienza espera de ingrediente.
+
+/*************************************************************************/

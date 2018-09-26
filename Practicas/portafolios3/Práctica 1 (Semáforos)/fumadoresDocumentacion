@@ -1,0 +1,12 @@
+**** Variables utilizadas ****
+
+const int NUM_FUM=3                        : Número de fumadores, coincide con el tamaño del vector de semáforos
+
+
+
+**** Semáforos ****
+
+Semaphore tiene_ingrediente[]={0,0,0};		 : Vector de semáforos, un elemento para cada fumador. Inicializados a cero, ya que todos necesitan su ingrediente.
+            -> sem_wait cada hebra fumadora, hasta que tenga su ingrediente.
+            -> sem_signal a la hebra del ingrediente producido cuando el estanquero lo ponga encima de la mesa.
+Semaphore puede_producir=1;			           : Controla la producción del estanquero. Inicializado a uno ya que el mostrador está vacío.

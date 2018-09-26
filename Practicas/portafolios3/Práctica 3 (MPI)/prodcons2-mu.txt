@@ -1,0 +1,40 @@
+/****Carlos Sánchez Páez*****/
+/*********2A (A2)***********/
+
+/******************Problema del productor-consumidor con múltiples productores y consumidores*************************************/
+
+/*******************************************Solución diseñada usando MPI**********************************************************/
+
+-> Cambios sobre prodcons2.cpp
+
+    - La constante ELEMENTOS se calcula como producto de NPROD * NCONS.
+    - El ID del buffer coincide con el valor de NPROD.
+    - Se utilizan etiquetas: 0 para los productores y 1 para los consumidores.
+    - Igualmente, se usan constantes numéricas para determinar el rol de cada proceso (productor, consumidor o buffer).
+    - Se modifica el valor de inicio de la función producir() para que cada productor produzca un rango determinado de valores.
+    - En la función del buffer, si no hay un rol con prioridad, se espera a recibir una petición cualquiera. Una vez recibida, entonces se actúa dependiendo del emisor de dicha petición.
+    - Se añade una función auxiliar para determinar el rol del proceso que solicita actuar.
+
+
+-> Salida parcial del programa
+
+                              ***************************************
+                              *                                     *
+                              *  Productor 0 ha producido valor 1   *
+                              *  Productor 0 va a enviar 1          *
+                              *  Buffer recibe 1                    *
+                              *  Buffer envia 1                     *
+                              *  Consumidor 1 recibe valor 1        *
+                              *  Consumidor 1 ha consumido valor 1  *
+                              *  Productor 2 ha producido valor 11  *
+                              *  Productor 2 va a enviar 11         *
+                              *  Buffer recibe 11                   *
+                              *  Buffer envia 11                    *
+                              *  Consumidor 3 recibe valor 11       *
+                              *  Productor 1 ha producido valor 6   *
+                              *  Productor 1 va a enviar 6          *
+                              *  Buffer recibe 6                    *
+                              *  Buffer envia 6                     *
+                              *  Consumidor 0 recibe valor 6        *
+                              *                                     *
+                              ***************************************
